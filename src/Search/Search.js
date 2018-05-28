@@ -59,16 +59,6 @@ export default class Search extends WixComponent {
     }
   };
 
-  _onClear = () => {
-    const {
-      onClear
-    } = this.props;
-
-    this.refs.searchInput.input.blur();
-
-    onClear && onClear();
-  };
-
   render() {
     return (
       <InputWithOptions
@@ -81,7 +71,6 @@ export default class Search extends WixComponent {
         closeOnSelect
         showOptionsIfEmptyInput={false}
         options={this._filteredOptions}
-        onClear={this._onClear}
         onChange={this._onChange}
         highlight
         />
