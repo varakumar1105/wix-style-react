@@ -4,7 +4,7 @@ import uniqueId from 'lodash/uniqueId';
 import classNames from 'classnames';
 import CheckboxChecked from 'wix-ui-icons-common/system/CheckboxChecked';
 import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndeterminate';
-
+import Label from '../Label';
 import styles from './Checkbox.scss';
 import WixComponent from '../BaseComponents/WixComponent';
 import {withFocusable, focusableStates} from '../common/Focusable';
@@ -93,9 +93,9 @@ class Checkbox extends WixComponent {
           style={{display: 'none'}}
           />
 
-        <label
-          htmlFor={id}
-          data-hook="checkbox-label"
+        <Label
+          for={id}
+          dataHook="checkbox-label"
           >
           <div
             data-hook="checkbox-box"
@@ -114,7 +114,7 @@ class Checkbox extends WixComponent {
               {children}
             </div>
           }
-        </label>
+        </Label>
       </div>
     );
   }
