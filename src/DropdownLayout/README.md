@@ -6,6 +6,7 @@
 
 | propName | propType | defaultValue | isRequired | description |
 |----------|----------|--------------|------------|-------------|
+| focusOnSelectedOption | boolean | false | - | should dropdown automatically scroll to selected option |
 | options | array of option | - | - | Array of Option objects that will be render to the list |
 | onSelect | func | - | - | Callback function called whenever the user selects a different option in the list |
 | onClose | func | - | - | Callback function called whenever the user press escape or click outside the component |

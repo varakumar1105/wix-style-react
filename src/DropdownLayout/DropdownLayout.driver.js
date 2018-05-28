@@ -25,6 +25,7 @@ const dropdownLayoutDriverFactory = ({element, wrapper, component}) => {
     hasTheme: theme => isClassExists(element, `theme-${theme}`),
     tabIndex: () => element.tabIndex,
     optionsLength: () => optionsLength(),
+    optionsScrollTop: () => options.scrollTop,
     mouseEnterAtOption: position => doIfOptionExists(position, () => ReactTestUtils.Simulate.mouseEnter(optionAt(position))),
     mouseLeaveAtOption: position => doIfOptionExists(position, () => ReactTestUtils.Simulate.mouseLeave(optionAt(position))),
     mouseClickOutside: () => document.body.dispatchEvent(new Event('mouseup', {cancelable: true})),

@@ -30,6 +30,18 @@ describe('DropdownLayout', () => {
     expect(() => driver.clickAtOption(20)).toThrow();
   });
 
+  it('should focus on selected option', () => {
+    const driver = createDriver(
+      <DropdownLayout
+        focusOnSelectedOption
+        visible
+        options={options}
+        selectedId={3}
+        />
+    );
+    expect(driver.optionsScrollTop()).toBe(0);
+  });
+
   it('should be visible and drop down', () => {
     const driver = createDriver(<DropdownLayout visible options={options}/>);
     expect(driver.isShown()).toBeTruthy();

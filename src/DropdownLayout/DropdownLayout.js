@@ -32,6 +32,25 @@ class DropdownLayout extends WixComponent {
     this.onClickOutside = this.onClickOutside.bind(this);
   }
 
+  componentDidMount() {
+    super.componentDidMount();
+    if (this.props.focusOnSelectedOption) {
+      this.focusOnSelectedOption();
+    }
+  }
+
+  focusOnSelectedOption() {
+    if (this.selectedOption) {
+      this.options.scrollTop = Math.max(this.selectedOption.offsetTop - this.selectedOption.offsetHeight, 0);
+    }
+  }
+
+  setSelectedOptionNode(optionNode, option) {
+    if (option.id === this.state.selectedId) {
+      this.selectedOption = optionNode;
+    }
+  }
+
   isLegalOption(option) {
     return typeof option === 'object' && typeof option.id !== 'undefined' && trim(option.id).length > 0 &&
         (typeof option.value !== 'undefined') && (React.isValidElement(option.value) || (typeof option.value === 'string' && trim(option.value).length > 0));
@@ -226,6 +245,7 @@ class DropdownLayout extends WixComponent {
     return (
       <div
         className={optionClassName}
+        ref={node => this.setSelectedOptionNode(node, option)}
         onMouseDown={!disabled ? () => this._onSelect(idx) : null}
         key={idx}
         onMouseEnter={() => this._onMouseEnter(idx)}
@@ -280,6 +300,7 @@ class DropdownLayout extends WixComponent {
 
 DropdownLayout.propTypes = {
   dropDirectionUp: PropTypes.bool,
+  focusOnSelectedOption: PropTypes.bool,
   onClose: PropTypes.func,
   onSelect: PropTypes.func,
   visible: PropTypes.bool,

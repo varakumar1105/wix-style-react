@@ -1,4 +1,7 @@
+import inputWithOptionsDriverFactory from '../InputWithOptions/InputWithOptions.protractor.driver';
+
 const multiSelectDriverFactory = component => ({
+  ...inputWithOptionsDriverFactory(component),
   addTag: () => {
     component.click();
     component.$('[data-hook^="dropdown-item"]:first-of-type').click();

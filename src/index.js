@@ -23,6 +23,7 @@ export {default as Slider} from './Slider';
 export {default as GoogleAddressInput} from './GoogleAddressInput';
 export {default as clients} from './clients';
 export {default as MultiSelect} from './MultiSelect';
+export {default as MultiSelectCheckbox} from './MultiSelectCheckbox';
 export {default as Loader} from './Loader';
 export {default as DatePicker} from './DatePicker';
 export {default as TimeInput} from './TimeInput';

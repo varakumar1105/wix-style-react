@@ -48,6 +48,7 @@ import '../stories/InputWithOptions'; // 4.1 + InputWithOptions
 import '../stories/IconWithOptions'; // 4.1 + IconWithOptions
 import '../stories/ButtonWithOptions'; // 4.1 + ButtonWithOptions
 import '../stories/DropdownComposite'; // 4.1 + DropdownComposite
+import '../stories/MultiSelectCheckbox/index.story.js'; // 4.1 + MultiSelectCheckbox
 import '../stories/Checkbox.story.js'; // 4.2 Checkbox
 import '../stories/RadioGroup.story.js'; // 4.3 RadioGroup
 import '../stories/ToggleSwitch'; // 4.4 ToggleSwitch

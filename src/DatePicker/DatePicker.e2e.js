@@ -91,6 +91,12 @@ describe('DatePicker', () => {
       })
     );
 
+    eyes.it('should be scrolled to current year', () => {
+      inputDriver.click();
+      calendarDriver.openYearDropdownOptions();
+      expect(calendarDriver.isYearInViewPort('2017')).toBeTruthy();
+    });
+
     eyes.it('should select 2027 year', () => {
       inputDriver.click();
 

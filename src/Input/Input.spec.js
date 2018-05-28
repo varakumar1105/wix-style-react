@@ -515,28 +515,6 @@ describe('Input', () => {
     });
   });
 
-  describe('size attribute', () => {
-    it('should use "normal" size by default', () => {
-      const driver = createDriver(<Input/>);
-      expect(driver.isOfSize('normal')).toBeTruthy();
-    });
-
-    it('should use "normal-with-selection" size if withSelection', () => {
-      const driver = createDriver(<Input size="normal" withSelection/>);
-      expect(driver.isOfSize('normal-with-selection')).toBeTruthy();
-    });
-
-    it('should use "small" size', () => {
-      const driver = createDriver(<Input size="small"/>);
-      expect(driver.isOfSize('small')).toBeTruthy();
-    });
-
-    it('should use "large" size', () => {
-      const driver = createDriver(<Input size="large"/>);
-      expect(driver.isOfSize('large')).toBeTruthy();
-    });
-  });
-
   describe('prefix attribute', () => {
     it('should allow adding a custom prefix component', () => {
       const driver = createDriver(<Input prefix={<div className="my-button"/>}/>);

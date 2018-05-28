@@ -1,6 +1,12 @@
 import {isFocused} from '../test-common';
+const EC = protractor.ExpectedConditions;
 
 const datePickerDriverFactory = component => {
+  const getYear = year => {
+    const MAX_YEAR = 2028;
+    const index = MAX_YEAR - year;
+    return component.$(`[data-hook='dropdown-item-${index}']`);
+  };
   const getInput = () => component.$('input');
   const getCalendar = () => component.$('.DayPicker');
   const getNthAvailableDay = n => component.$$('[role="gridcell"]:not([class*="outside"])').get(n);
@@ -24,6 +30,7 @@ const datePickerDriverFactory = component => {
     calendarDriver: {
       getElement: () => getCalendar(),
       exists: () => getCalendar().isPresent(),
+      isYearInViewPort: year => browser.wait(EC.visibilityOf(getYear(year)), 5000),
       isVisible: () => getCalendar().isDisplayed(),
       clickOnNthAvailableDay: (n = 0) => getNthAvailableDay(n).click(),
       openYearDropdownOptions: () => getYearDropdown().click(),

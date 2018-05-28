@@ -71,6 +71,7 @@ export default class DropdownPicker extends React.Component {
           <div className={styles.dropdown}>
             <DropdownLayout
               dataHook={`${dataHook}-menu`}
+              focusOnSelectedOption
               visible={isOpen}
               options={options}
               onSelect={this.onSelect}
