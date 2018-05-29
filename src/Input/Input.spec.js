@@ -211,9 +211,9 @@ describe('Input', () => {
       expect(driver.hasMenuArrow()).toBeFalsy();
     });
 
-    it('should not display a menu arrow icon if error is true', () => {
+    it('should display a menu arrow icon if error is true', () => {
       const driver = createDriver(<Input menuArrow error/>);
-      expect(driver.hasMenuArrow()).toBeFalsy();
+      expect(driver.hasMenuArrow()).toBeTruthy();
     });
 
     it('should not display a menu arrow icon if magnifyingGlass is true', () => {
