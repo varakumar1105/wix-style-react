@@ -6,6 +6,8 @@ import InfiniteScroll from './InfiniteScroll';
 import WixComponent from '../BaseComponents/WixComponent';
 import ArrowVertical from '../Icons/dist/components/ArrowVertical';
 import {Animator} from 'wix-animations';
+import Info2 from '../Icons/dist/components/Info2';
+import Tooltip from '../Tooltip/Tooltip';
 
 export const DataTableHeader = props => (
   <div>
@@ -238,6 +240,20 @@ class TableHeader extends Component {
     return <span data-hook={`${colNum}_title`} className={sortDirectionClassName}><ArrowVertical/></span>;
   };
 
+  renderInfoTooltip = (tooltipProps, colNum) => {
+    if (tooltipProps === undefined) {
+      return null;
+    }
+    const _tooltipProps = Object.assign({}, tooltipProps, {
+      dataHook: `${colNum}_info_tooltip`,
+      moveBy: {x: 2.5, y: 0}
+    });
+    return (
+      <Tooltip {..._tooltipProps}>
+        <span><Info2 className={s.infoIcon}/></span>
+      </Tooltip>);
+  };
+
   renderHeaderCell = (column, colNum) => {
     const style = {
       width: column.width,
@@ -261,7 +277,7 @@ class TableHeader extends Component {
         key={colNum}
         {...optionalHeaderCellProps}
         >
-        {column.title}{this.renderSortingArrow(column.sortDescending, colNum)}
+        {column.title}{this.renderSortingArrow(column.sortDescending, colNum)}{this.renderInfoTooltip(column.infoTooltip, colNum)}
       </th>);
   };
 
@@ -313,6 +329,7 @@ DataTable.propTypes = {
     ]).isRequired,
     render: PropTypes.func.isRequired,
     sortable: PropTypes.bool,
+    infoTooltip: PropTypes.object,
     sortDescending: PropTypes.bool
   })),
   showHeaderWhenEmpty: PropTypes.bool,
