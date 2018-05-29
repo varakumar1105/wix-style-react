@@ -16,7 +16,7 @@ const suffixRules = {
   inputHelpSuffix: ({help, disabled}) => help && !disabled,
   magnifyingGlass: ({magnifyingGlass, isClearButtonVisible, error}) => magnifyingGlass && !isClearButtonVisible && !error,
   clearButton: ({isClearButtonVisible}) => isClearButtonVisible,
-  menuArrow: ({menuArrow, isClearButtonVisible, error, magnifyingGlass}) => menuArrow && !isClearButtonVisible && !magnifyingGlass,
+  menuArrow: ({menuArrow, isClearButtonVisible, magnifyingGlass}) => menuArrow && !isClearButtonVisible && !magnifyingGlass,
   unitSeparator: ({unit}) => !!unit,
   unit: ({unit}) => !!unit,
   customSuffix: ({suffix}) => !!suffix
@@ -73,7 +73,7 @@ const InputSuffix = ({theme, errorMessage, error, disabled, help, helpMessage, o
         <div className={styles.menuArrow} disabled={disabled} onClick={onIconClicked}>
           <ArrowDownThin size={'0.6em'}/>
         </div>,
-      isVisible: suffixRules.menuArrow({menuArrow, isClearButtonVisible, error, magnifyingGlass})
+      isVisible: suffixRules.menuArrow({menuArrow, isClearButtonVisible, magnifyingGlass})
     }
   ].filter(isFixVisible);
 
